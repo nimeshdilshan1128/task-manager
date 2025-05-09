@@ -1,54 +1,65 @@
-# Task Manager Web App
 
-A simple web app to manage daily tasks using React, Node.js, Express, and MySQL.
+Task Manager Web App
+A simple and responsive task management web application that allows users to add, update, and delete tasks.
+It supports real-time task tracking with completion status and visual statistics for pending and completed tasks.
 
-## Features
-- Add, view, complete, and delete tasks
+How to Run the App
+1) Backend Setup (Node.js + Express + MySQL)
+Install dependencies >
+Open your terminal, navigate to the backend directory (where index.js and db.js are), and run:
 
-## Run Instructions
+npm install express mysql2 cors
 
-### 1. Backend
-- Go to `backend/`
-- Update `db.js` with your MySQL credentials
-- Run: `node index.js`
+Create MySQL Database >
 
-### 2. MySQL
-- Run `db.sql` in your MySQL server
+Open your MySQL client (like phpMyAdmin or CLI).
 
-### 3. Frontend
-- Go to `frontend/`
-- Run: `npm install && npm start`
+Run the following SQL:
 
-## Tech Stack
-- Frontend: React
-- Backend: Node.js + Express
-- DB: MySQL
+CREATE DATABASE task_manager;
 
+USE task_manager;
 
-## Available Scripts
+CREATE TABLE tasks (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  completed TINYINT(1) DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-In the project directory, you can run:
+Start the backend server >
 
-### `npm start`
+node index.js
+(The backend will run on: http://localhost:5000)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2) Frontend Setup (React)
+Navigate to your React app folder>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+npm install
 
-### `npm test`
+Start the frontend server>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm start
+(The frontend will run on: http://localhost:3000)
 
-### `npm run build`
+Make sure both frontend and backend servers are running simultaneously.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Technologies & Libraries Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Frontend:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+React (Create React App)
+Axios (for HTTP requests)
+CSS (Responsive design and custom scrollbar)
 
+Backend
+
+Node.js
+Express
+MySQL (via mysql2)
+CORS middleware
+
+Bonus Features
+- Task statistics section showing the number of completed and pending tasks.
+- Responsive UI: Optimized for mobile and tablet views.
+- Timestamps (created_at) stored in DB for potential future use.
