@@ -42,7 +42,7 @@ function App() {
     <div className="app">
       <h1>Task Manager</h1>
 
-      {/* ✅Task stats section */}
+      {/* Task stats section */}
       <div className="task-stats">
         <p>🆗 Completed: {completedCount}</p>
         <p>🕓 Pending: {pendingCount}</p>
